@@ -158,15 +158,16 @@ def generate_tweet_with_openai(statistic, previous_posts):
     
     prompt = f"""Create a suitable, concise, and effective Twitter post based on this statistic about EU government procurement: {statistic}
     Emphasize the value and opportunities behind government contracts.
-    Do not use hashtags.
-    Keep the post under 280 characters.
+    DO NOT use hashtags.
+    Keep the post under 300 characters.
+    DO NOT use quotation marks around the tweet.
     Ensure the content is different from these recent posts:
     {recent_posts}"""
 
     response = client.chat.completions.create(
         model="gpt-4",
         messages=[
-            {"role": "system", "content": "You are a helpful assistant that creates concise and effective Twitter posts about EU government procurement."},
+            {"role": "system", "content": "You are a helpful assistant that creates concise and effective Twitter posts about EU government procurement. Do not use quotation marks in your response."},
             {"role": "user", "content": prompt}
         ],
         max_tokens=100,
@@ -195,7 +196,7 @@ def main():
         if not statistic:
             print("All statistics have been used. Fetching new ones...")
             new_stats = get_statistics()
-            stats_data["statistics"] = new_stats["statistics"]  # Replace instead of append
+            stats_data["statistics"] = new_stats["statistics"]
             stats_data["used"] = []
             save_statistics(stats_data)
             statistic = get_unused_statistic(stats_data)
