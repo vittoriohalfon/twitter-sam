@@ -1,0 +1,6 @@
+python-dotenv
+requests
+tweepy
+openai
+boto3
+pydantic
