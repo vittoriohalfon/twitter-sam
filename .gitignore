@@ -1,2 +1,4 @@
 .env
 twitter_sam_env/
+.aws-sam/
+.aws-sam
