@@ -165,7 +165,7 @@ def generate_tweet_with_openai(statistic, previous_posts):
     {recent_posts}"""
 
     response = client.chat.completions.create(
-        model="gpt-4",
+        model="gpt-4o-mini",
         messages=[
             {"role": "system", "content": "You are a helpful assistant that creates concise and effective Twitter posts about EU government procurement. Do not use quotation marks in your response."},
             {"role": "user", "content": prompt}
