@@ -101,7 +101,7 @@ def send_prompt_to_perplexity(prompt):
     return generated_content
 
 def get_statistics():
-    prompt = "Give me 5 concise and interesting statistics about EU government procurement. Format each statistic as a single sentence without categories or subcategories."
+    prompt = "Give me 5 interesting statistics about EU government procurement. Format each statistic as a single sentence without categories or subcategories. Try to find valuable information that could incentivize companies to participate in public procurement procedures."
     
     response = send_prompt_to_perplexity(prompt)
     
